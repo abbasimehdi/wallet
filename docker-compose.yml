@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  nginx:
+    build: ./nginx/
+    ports:
+      - "8000:80"
+
+    volumes:
+      - ./src/:/var/www/html/
+
+  php:
+    build: ./php
+    expose:
+      - 9000
+    volumes:
+      - ./src/:/var/www/html/
+
+
+  db:
+    image: mysql
+    volumes:
+      -    mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: wallet_db
+
+volumes:
+  mysql-data:
