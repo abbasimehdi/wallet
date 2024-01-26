@@ -5,9 +5,22 @@ include('./config/DbConfig.php');
 
  index($conn);
 
- function index($conn)
+/**
+ * @param $conn
+ * @return void
+ */
+function index($conn)
  {
-     $tickets = $conn->query('SELECT * FROM wallets')->fetchAll();
-     var_dump(json_encode($tickets));
+     $wallets = $conn->query('SELECT * FROM wallets')->fetchAll();
+     $sum = $conn->query('SELECT * FROM wallets')->fetchAll();
 
+     $sql = "SELECT sum(amount) as rate_sum, count(*) as record_count FROM wallets";
+     $query = $conn->query($sql);
+     $row = $query->fetch(PDO::FETCH_ASSOC);
+     if ($row) {
+         $sum = $row['rate_sum'];
+         $count = $row['record_count'];
+     }
+
+    include_once "resources/views/transaction/transaction.html";
  }
