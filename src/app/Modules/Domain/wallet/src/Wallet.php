@@ -48,7 +48,7 @@ function validate($amount, $policy)
     }
 
     if (
-        isset($_SESSION['errors']['amount']) &&
+        isset($_SESSION['errors']['amount']) ||
         isset($_SESSION['errors']['policy'])
     ) {
         echo "<script type='text/javascript'>window.top.location='../../../../../index.php';</script>";

@@ -16,7 +16,7 @@
         <?php include 'resources/views/layouts/menu.html' ?>
         <div class="col-md-12 mt-4">
 
-        <p><span>موجودی کیف پول شما :</span>&nbsp;<span><?php echo $sum?? 0 ?></span>&nbsp;<span>ریال</span></p>
+        <p><span>موجودی کیف پول شما :</span>&nbsp;<span style="font-weight: bold"><?php echo $sum?? 0 ?></span>&nbsp;<span>ریال</span></p>
         <table class="table">
             <thead>
             <tr>
@@ -37,7 +37,11 @@
                         <?php
                         $count++;
                     }
-                }
+                } else { ?>
+                    <tr>
+                        <td class="text-center" colspan="3" style="font-weight: bold">تراکنشی ثبت نشده است.</td>
+                    </tr>
+                <? }
                 ?>
             </tbody>
         </table>
