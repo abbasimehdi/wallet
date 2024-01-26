@@ -1,5 +1,5 @@
 <?php
-$servername = "127.0.0.2";
+$servername = '192.168.240.4';
 $username = "root";
 $password = "123456";
-$database = "wallet_ab";
+$database = "wallet_db";;

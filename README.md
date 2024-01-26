@@ -10,4 +10,6 @@
 # docker database host ip
 - sudo docker inspect wallet_db_1
 - copy "IPAddress": "192.168.240.4"
-- - Replace it in src/config/Dbconfig.php file on line 11 with before host
+- - Replace it in line 1 of src/env.php file with $servername
+- - Replace it in src/config/Dbconfig.php file line 11 with before host
+
