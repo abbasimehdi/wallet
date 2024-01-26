@@ -13,6 +13,7 @@ if ($row) {
     $sum = $row['rate_sum'];
     $count = $row['record_count'];
 }
+
 ?>
 <!doctype html>
 <html lang="fa" dir="rtl">
@@ -32,7 +33,7 @@ if ($row) {
         <?php include 'resources/views/layouts/menu.html' ?>
         <div class="col-md-12 mt-4">
 
-        <p><span>موجودی کیف پول شما :</span>&nbsp;<span><?php echo $sum ?></span>&nbsp;<span>ریال</span></p>
+        <p><span>موجودی کیف پول شما :</span>&nbsp;<span><?php echo $sum?? 0 ?></span>&nbsp;<span>ریال</span></p>
         <table class="table">
             <thead>
             <tr>
@@ -42,15 +43,17 @@ if ($row) {
             </thead>
             <tbody>
                 <?php
-                $count = 1;
-                foreach($wallets as $wallet) {
-                    ?>
+                if ($wallets) {
+                    $count = 1;
+                    foreach($wallets as $wallet) {
+                        ?>
                         <tr>
                             <td><?php echo $count ?></td>
                             <td><?php echo $wallet['amount'] ?></td>
                         </tr>
-                    <?php
-                    $count++;
+                        <?php
+                        $count++;
+                    }
                 }
                 ?>
             </tbody>
