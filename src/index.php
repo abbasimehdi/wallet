@@ -17,7 +17,7 @@ session_start();
 <div class="container">
     <div class="row">
         <?php include 'resources/views/layouts/menu.html' ?>
-        <div class="col-md-8 mt-4">
+        <div class="col-md-12 mt-4">
             <?php if(isset($_SESSION['message'])) : ?>
                 <h5 class="alert alert-success"><?= $_SESSION['message']; ?></h5>
                 <?php

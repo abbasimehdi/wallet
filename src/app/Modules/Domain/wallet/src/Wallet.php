@@ -31,7 +31,6 @@ function store($conn)
     ])
         ? $_SESSION['message'] = "اطلاعات با موفقیت ثبت شد."
         : $_SESSION['message'] = "خطایی در ثبت اطلاعات وحوپ دارد";
-
     echo "<script type='text/javascript'>window.top.location='../../../../../index.php';</script>";
     exit;
 }
@@ -48,6 +47,11 @@ function validate($amount, $policy)
         $_SESSION['errors']['policy'] = POLICY_IS_REQUIRED;
     }
 
-    echo "<script type='text/javascript'>window.top.location='../../../../../index.php';</script>";
-    exit;
+    if (
+        isset($_SESSION['errors']['amount']) &&
+        isset($_SESSION['errors']['policy'])
+    ) {
+        echo "<script type='text/javascript'>window.top.location='../../../../../index.php';</script>";
+        exit;
+    }
 }
